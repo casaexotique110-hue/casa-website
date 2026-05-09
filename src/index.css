@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Editorial luxury design system — ivory, charcoal, antique gold */
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;          /* ivory #faf7f1 */
+    --foreground: 30 8% 14%;           /* deep charcoal */
+
+    --card: 40 33% 97%;
+    --card-foreground: 30 8% 14%;
+
+    --popover: 40 33% 97%;
+    --popover-foreground: 30 8% 14%;
+
+    --primary: 30 8% 14%;              /* charcoal */
+    --primary-foreground: 40 33% 97%;
+
+    --secondary: 36 22% 92%;
+    --secondary-foreground: 30 8% 14%;
+
+    --muted: 36 18% 90%;
+    --muted-foreground: 30 6% 38%;
+
+    --accent: 33 38% 52%;              /* antique gold #b08d57 */
+    --accent-foreground: 40 33% 97%;
+
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 40 33% 97%;
+
+    --border: 33 18% 82%;
+    --input: 33 18% 82%;
+    --ring: 33 38% 52%;
+
+    --radius: 0.125rem;
+
+    /* Brand specifics */
+    --gold: 33 38% 52%;
+    --gold-soft: 36 30% 70%;
+    --ink: 30 10% 10%;
+
+    --gradient-overlay: linear-gradient(180deg, hsl(30 10% 10% / 0.15) 0%, hsl(30 10% 10% / 0.55) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(33 45% 60%), hsl(33 38% 42%));
+    --shadow-soft: 0 30px 60px -30px hsl(30 10% 10% / 0.35);
+
+    --transition-elegant: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 30 10% 8%;
+    --foreground: 40 33% 95%;
+    --card: 30 10% 8%;
+    --card-foreground: 40 33% 95%;
+    --popover: 30 10% 8%;
+    --popover-foreground: 40 33% 95%;
+    --primary: 40 33% 95%;
+    --primary-foreground: 30 10% 8%;
+    --secondary: 30 8% 16%;
+    --secondary-foreground: 40 33% 95%;
+    --muted: 30 8% 16%;
+    --muted-foreground: 36 10% 65%;
+    --accent: 33 38% 52%;
+    --accent-foreground: 30 10% 8%;
+    --border: 30 8% 20%;
+    --input: 30 8% 20%;
+    --ring: 33 38% 52%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0.01em;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .font-serif { font-family: 'Cormorant Garamond', serif; }
+  .font-sans  { font-family: 'Inter', sans-serif; }
+  .eyebrow {
+    @apply text-[0.7rem] uppercase text-accent;
+    letter-spacing: 0.32em;
+    font-weight: 400;
+  }
+  .rule-gold::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 1px;
+    background: hsl(var(--accent));
+    margin: 1.25rem auto;
+  }
+  .hover-zoom { overflow: hidden; }
+  .hover-zoom img { transition: transform 1.2s var(--transition-elegant); }
+  .hover-zoom:hover img { transform: scale(1.06); }
+
+  .fade-up { animation: fadeUp 1.2s var(--transition-elegant) both; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { animation: fadeIn 1.6s ease both; }
+  @keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+  }
+  .scroll-arrow {
+    animation: bounceY 2.4s ease-in-out infinite;
+  }
+  @keyframes bounceY {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+}
