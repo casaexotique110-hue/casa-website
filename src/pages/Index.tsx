@@ -25,7 +25,7 @@ const Index = () => {
         body={
           <>
             <p>
-              aaaaaaaaaOur approach is built on the foundation of artistry, craftsmanship,
+              zzzzzzzzzzzOur approach is built on the foundation of artistry, craftsmanship,
               and innovation. Luxury is an experience that must be felt in every
               texture, every material, and every detail.
             </p>
