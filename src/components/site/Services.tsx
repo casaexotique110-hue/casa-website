@@ -1,23 +1,35 @@
+import { Link } from "react-router-dom";
+
 const services = [
   {
     n: "01",
-    title: "Architecture",
-    desc: "Iconic estate residences shaped by classical proportion and modern craft.",
+    title: "Bespoke Furniture",
+    desc: "Custom media units, wardrobes, kitchens and more — crafted to your space.",
+    href: "/services/bespoke-furniture",
   },
   {
     n: "02",
-    title: "Interior Design",
-    desc: "Bespoke interiors composed of fine materials, light and quiet luxury.",
+    title: "Turnkey Execution",
+    desc: "End-to-end delivery from concept and procurement to flawless installation.",
+    href: "/services/turnkey-execution",
   },
   {
     n: "03",
-    title: "Furniture",
-    desc: "A signature collection of hand-finished pieces, made to order.",
+    title: "Custom Fit-Outs",
+    desc: "Tailored interior fit-outs that reinforce brand identity and function.",
+    href: "/services/custom-fit-outs",
   },
   {
     n: "04",
-    title: "Landscape",
-    desc: "Formal gardens and considered grounds that complete the residence.",
+    title: "In-House Customization",
+    desc: "Master artisans realising bespoke detail under one roof.",
+    href: "/services/in-house-customization",
+  },
+  {
+    n: "05",
+    title: "Seamless Procurement",
+    desc: "Expert procurement of premium global products and finishes.",
+    href: "/services/seamless-procurement",
   },
 ];
 
@@ -27,25 +39,27 @@ const Services = () => {
       <div className="container">
         <div className="text-center max-w-2xl mx-auto">
           <p className="eyebrow">What We Do</p>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mt-6">Services</h2>
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mt-6">Our Services</h2>
           <div className="rule-gold" />
           <p className="text-muted-foreground">
-            From the first sketch to the final flourish, every detail is conceived,
-            drawn and delivered under one roof.
+            A distinctive design process — every stage an orchestration of
+            creativity and precision, from concept to completion.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border mt-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-px bg-border mt-16">
           {services.map((s) => (
-            <article
+            <Link
+              to={s.href}
               key={s.n}
-              className="group bg-background p-10 md:p-12 transition-colors duration-500 hover:bg-foreground hover:text-background"
+              className="group bg-background p-10 transition-colors duration-500 hover:bg-foreground hover:text-background"
             >
               <span className="font-serif text-accent text-sm tracking-widest">{s.n}</span>
-              <h3 className="font-serif text-3xl md:text-4xl mt-6">{s.title}</h3>
+              <h3 className="font-serif text-2xl md:text-3xl mt-6">{s.title}</h3>
               <div className="w-8 h-px bg-accent my-6 transition-all duration-500 group-hover:w-16" />
               <p className="text-sm leading-relaxed opacity-80">{s.desc}</p>
-            </article>
+              <p className="mt-6 text-[0.65rem] uppercase tracking-[0.28em] text-accent">Explore →</p>
+            </Link>
           ))}
         </div>
       </div>
